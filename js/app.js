@@ -15,9 +15,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Weather tracker (stub)
+  // Weather tracker (NEA API integration)
   const weatherDiv = document.getElementById('weather');
-  weatherDiv.textContent = 'Weather info coming soon!';
+  weatherDiv.innerHTML = '<em>Loading 4-day weather forecast...</em>';
+
+  fetch('https://api.data.gov.sg/v1/environment/4-day-weather-forecast')
+    .then(response => response.json())
+    .then(data => {
+      const items = data.items && data.items[0];
+      if (!items || !items.forecasts) {
+        weatherDiv.innerHTML = '<span style="color:red">Weather data unavailable.</span>';
+        return;
+      }
+      const forecasts = items.forecasts;
+      let html = '<div class="weather-forecast-grid">';
+      forecasts.forEach(day => {
+        html += `
+          <div class="weather-forecast-day">
+            <div class="weather-date">${day.date}</div>
+            <div class="weather-forecast">${day.forecast}</div>
+            <div class="weather-temp">${day.temperature.low}&deg;C - ${day.temperature.high}&deg;C</div>
+          </div>
+        `;
+      });
+      html += '</div>';
+      weatherDiv.innerHTML = html;
+    })
+    .catch(() => {
+      weatherDiv.innerHTML = '<span style="color:red">Failed to load weather data.</span>';
+    });
 
   // Signup form
   const signupForm = document.getElementById('signup-form');
