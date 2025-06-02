@@ -1,5 +1,5 @@
 // ShoreSquad App JS
-// Features: Map, Weather, Crew Management (basic stubs)
+// Features: Map, Weather, Crew Management, Signup (basic stubs)
 
 document.addEventListener('DOMContentLoaded', () => {
   // Crew management
@@ -19,7 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const weatherDiv = document.getElementById('weather');
   weatherDiv.textContent = 'Weather info coming soon!';
 
-  // Map (stub)
-  const mapDiv = document.getElementById('map');
-  mapDiv.textContent = 'Map loading soon!';
+  // Signup form
+  const signupForm = document.getElementById('signup-form');
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    alert(`Welcome, ${username}! Account created for ${email}.`);
+    signupForm.reset();
+  });
+
+  // Event signup form
+  const eventSignupForm = document.getElementById('event-signup-form');
+  eventSignupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const eventSelect = document.getElementById('event-select');
+    alert(`Signed up for: ${eventSelect.options[eventSelect.selectedIndex].text}`);
+    eventSignupForm.reset();
+  });
 });

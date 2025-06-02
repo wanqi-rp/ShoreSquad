@@ -11,14 +11,61 @@
     <h1>ShoreSquad</h1>
     <p>Rally your crew, track weather, and hit the next beach cleanup!</p>
   </header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#signup">Sign Up</a>
+    <a href="#crew">Your Crew</a>
+  </nav>
   <main>
-    <section id="map-section">
-      <h2>Find a Cleanup</h2>
-      <div id="map"></div>
+    <section id="about">
+      <h2>About ShoreSquad</h2>
+      <p>Mobilizing young people to clean beaches, plan with weather and maps, and make eco-action fun and social!</p>
+    </section>
+    <section id="events">
+      <h2>Upcoming Beach Cleanups</h2>
+      <div id="map" style="padding:0;">
+        <iframe
+          width="100%"
+          height="320"
+          frameborder="0"
+          style="border:0; border-radius:12px; min-height:320px;"
+          src="https://maps.google.com/maps?q=1.381497,103.955574&z=16&output=embed"
+          allowfullscreen=""
+          aria-label="Next Cleanup: Pasir Ris"
+        ></iframe>
+        <div style="margin-top:0.5rem; font-weight:bold; color:#176B87;">Next Cleanup: Pasir Ris (Street View Asia)</div>
+      </div>
+      <form id="event-signup-form">
+        <label for="event-select">Sign up for an event:</label>
+        <select id="event-select">
+          <option value="beach1">Pasir Ris - June 15</option>
+          <option value="beach2">East Coast Park - June 22</option>
+          <option value="beach3">Changi Beach - July 6</option>
+        </select>
+        <button type="submit" id="event-signup-btn">Sign Up for Event</button>
+      </form>
+      <div style="margin-top:1rem;">
+        <strong>Upcoming Cleanups:</strong>
+        <ul style="margin:0.5rem 0 0 1.2rem;">
+          <li><span style="color:#176B87; font-weight:bold;">Pasir Ris</span> (June 15) <a href="https://maps.google.com/maps?q=1.381497,103.955574&z=16&output=embed" target="_blank" rel="noopener">[Map]</a></li>
+          <li><span style="color:#176B87; font-weight:bold;">East Coast Park</span> (June 22) <a href="https://maps.google.com/maps?q=1.3039,103.9121&z=16&output=embed" target="_blank" rel="noopener">[Map]</a></li>
+          <li><span style="color:#176B87; font-weight:bold;">Changi Beach</span> (July 6) <a href="https://maps.google.com/maps?q=1.3901,103.9872&z=16&output=embed" target="_blank" rel="noopener">[Map]</a></li>
+        </ul>
+      </div>
     </section>
     <section id="weather-section">
       <h2>Weather Tracker</h2>
       <div id="weather"></div>
+    </section>
+    <section id="signup">
+      <h2>Create Your Account</h2>
+      <form id="signup-form">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit" id="signup-btn">Sign Up</button>
+      </form>
     </section>
     <section id="crew-section">
       <h2>Your Crew</h2>

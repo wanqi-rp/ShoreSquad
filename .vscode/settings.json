@@ -1,8 +1,7 @@
-# Live Server configuration
 {
-  "port": 5500,
-  "host": "127.0.0.1",
-  "root": "/",
-  "open": true,
-  "ignore": "node_modules,.git,.DS_Store"
+  // Live Server configuration
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.host": "127.0.0.1",
+  "liveServer.settings.root": "/",
+  "liveServer.settings.ignoreFiles": ["node_modules", ".git", ".DS_Store"]
 }
